@@ -1,0 +1,55 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "QTrungNode2",
+    "password": "testRequest"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "QTrungNode2",
+    "password": "testRequest"
+}
+
+###
+
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTUzNjd9.N_-7kleLscLC_38aJ2MlAfmeAZjLbhPCa8S_yJj-6TM
+
+{
+    "title": "1. Post in Acount 2",
+    "description": "1",
+    "url": "google.com",
+    "status": "LEARNING"
+
+}
+
+###
+
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTY0NTF9.yR6S2rRdfAizRvYIKj5zqhAw9sEO9acdGgFNlXFRVZ0
+
+
+###
+PUT http://localhost:5000/api/posts/63731f4b1d9ff237cf4b2695
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTY0NTF9.yR6S2rRdfAizRvYIKj5zqhAw9sEO9acdGgFNlXFRVZ0
+
+{
+    "title": "New update 2",
+    "description": "Update description",
+    "url": "youtube.com",
+    "status": "LEARNED"
+}
+
+###
+
+DELETE http://localhost:5000/api/posts/63731fa5fa95950913b02bb8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTY0NTF9.yR6S2rRdfAizRvYIKj5zqhAw9sEO9acdGgFNlXFRVZ0
