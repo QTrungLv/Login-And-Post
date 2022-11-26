@@ -1,14 +1,21 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
+
+import Login from './components/auth/LoginForm';
+import Landing from './components/layout/Landing';
+import Auth from './views/Auth';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <p>
-        Hello World
-      </p>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
+        <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
+      </Switch>
+    </Router>
+  )
 }
-
 export default App;
