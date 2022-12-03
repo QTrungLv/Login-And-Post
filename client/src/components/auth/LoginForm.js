@@ -1,23 +1,81 @@
-import React from 'react';
-import { Button, Form, FormControl, FormGroup, Link } from 'react-bootstrap'
-export default function LoginForm() {
+import { useContext, useState } from 'react';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+import { Link, useHistory } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+
+
+const LoginForm = () => {
+    // Context
+    const { loginUser } = useContext(AuthContext)
+
+    //Navigation
+    const history = useHistory()
+
+    //Local State
+    const [loginForm, setLoginForm] = useState({
+        username: "",
+        password: ""
+    })
+
+    const { username, password } = loginForm
+
+
+
+    const onChangeLoginForm = event => setLoginForm({ ...loginForm, [event.target.name]: event.target.value })
+
+    const login = async event => {
+        event.preventDefault()
+        try {
+            const loginData = await loginUser(loginForm)
+            console.log("Login Data: \n", loginData)
+            if(loginData.success){
+                history.push('/dashboard')
+            }else{
+
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
-        <div>
-            <Form>
-                <FormGroup>
-                    <FormControl type="text" placeholder='Username' name="username" required />
-                </FormGroup>
-                <FormGroup>
-                    <FormControl type="password" placeholder="Password" name='password' required />
-                </FormGroup>
-                <Button variant='success' type='submit'>Login</Button>
+        <>
+            <Form className='my-4' onSubmit={login}>
+                <Form.Group>
+                    <Form.Control
+                        type='text'
+                        placeholder='Username'
+                        name='username'
+                        value={username}
+                        onChange={onChangeLoginForm}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                        type='password'
+                        placeholder='Password'
+                        name='password'
+                        value={password}
+                        onChange={onChangeLoginForm}
+                        required
+
+                    />
+                </Form.Group>
+                <Button variant='success' type='submit'>
+                    Login
+                </Button>
             </Form>
-            <p>Don't have a account?
+            <p>
+                Don't have an account?
                 <Link to='/register'>
-                    <Button variant='info' size='sm' className='m1-2' ></Button>
+                    <Button variant='info' size='sm' className='ml-2'>
+                        Register
+                    </Button>
                 </Link>
             </p>
-        </div>
-
+        </>
     )
 }
+export default LoginForm;

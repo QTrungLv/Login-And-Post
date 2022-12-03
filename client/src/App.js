@@ -1,21 +1,33 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-
-import Login from './components/auth/LoginForm';
 import Landing from './components/layout/Landing';
+import AuthContextProvider from './contexts/AuthContext';
 import Auth from './views/Auth';
+import DashBoard from './views/DashBoard';
 
 
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/login' render={props => <Auth {...props} authRoute='login' />} />
-        <Route exact path='/register' render={props => <Auth {...props} authRoute='register' />} />
-      </Switch>
-    </Router>
+
+    <AuthContextProvider>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Landing} />
+          <Route
+            exact
+            path='/login'
+            render={props => <Auth {...props} authRoute='login' />}
+          />
+          <Route
+            exact
+            path='/register'
+            render={props => <Auth {...props} authRoute='register' />}
+          />
+          <Route exact path='/dashboard' component={DashBoard} />
+        </Switch>
+      </Router>
+    </AuthContextProvider>
+
   )
 }
-export default App;
