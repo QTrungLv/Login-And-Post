@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
 import Landing from './components/layout/Landing';
 import AuthContextProvider from './contexts/AuthContext';
+import ProtectedRoute from './routing/ProtectedRoute';
 import Auth from './views/Auth';
 import DashBoard from './views/DashBoard';
 
@@ -24,7 +25,7 @@ export default function App() {
             path='/register'
             render={props => <Auth {...props} authRoute='register' />}
           />
-          <Route exact path='/dashboard' component={DashBoard} />
+          <ProtectedRoute exact path='/dashboard' component={DashBoard} />
         </Switch>
       </Router>
     </AuthContextProvider>
