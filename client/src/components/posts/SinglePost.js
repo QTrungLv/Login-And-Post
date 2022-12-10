@@ -1,4 +1,5 @@
-import { Card, Row, Col, Badge, Button, ActionButton } from 'react-bootstrap'
+import { Card, Row, Col, Badge, Button } from 'react-bootstrap'
+import ActionButton from './ActionButton'
 
 const SinglePost = ({ post: { _id, status, title, description, url } }) => {
 
@@ -20,7 +21,7 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => {
                             </Badge>
                         </Col>
                         <Col className='text-right'>
-                            Buttons
+                            <ActionButton url={url} _id={_id} />
                         </Col>
                     </Row>
                 </Card.Title>
