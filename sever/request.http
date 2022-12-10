@@ -2,21 +2,17 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "QTrungNode2",
+    "username": "QTrungNode23",
     "password": "testRequest"
 }
 
 ###
 
-GET http://localhost:5000/api/auth/
-Content-Type: : application/json
-
-###
 POST http://localhost:5000/api/auth/login
-Authorization: Bearer
+Content-Type: application/json
 
 {
-    "username": "QTrungNode2",
+    "username": "QTrungNode23",
     "password": "testRequest"
 }
 
@@ -43,11 +39,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyO
 ###
 PUT http://localhost:5000/api/posts/63731f4b1d9ff237cf4b2695
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTY0NTF9.yR6S2rRdfAizRvYIKj5zqhAw9sEO9acdGgFNlXFRVZ0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzkyZmEyZGE1OWVkYmRmNDhlYmIzZjIiLCJpYXQiOjE2NzA2NjAwNDl9.TNjkQBx43KvTyX_uZoR8-ATryVISf_B7hSHQvPAd0jE
 
 {
-    "title": "New update 2",
-    "description": "Update description",
+    "title": "First Post",
+    "description": "A new Post",
     "url": "youtube.com",
     "status": "LEARNED"
 }
@@ -57,3 +53,46 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyO
 DELETE http://localhost:5000/api/posts/63731fa5fa95950913b02bb8
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTY0NTF9.yR6S2rRdfAizRvYIKj5zqhAw9sEO9acdGgFNlXFRVZ0
+
+
+###
+###Test
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "nqtnqt2409",
+    "password": "nqtnqt2409"
+}
+
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzkyZmEyZGE1OWVkYmRmNDhlYmIzZjIiLCJpYXQiOjE2NzA2NjA4NzB9.JyegIpsXP55lbBic45s5-ui-vWfqDGVZmQ4r12E2iAI
+
+{
+    "title": "Account: nqtnqt2409 - Post: Test 1",
+    "description": "A new post",
+    "url": "google.com",
+    "status": "LEARNING"
+
+}
+
+###
+
+PUT http://localhost:5000/api/posts/6394401cb2c4777aa94dc1b0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzcyOWFhM2U4NzYwZTg4NjEwMmVkYmMiLCJpYXQiOjE2Njg0NTUzNjd9.N_-7kleLscLC_38aJ2MlAfmeAZjLbhPCa8S_yJj-6TM
+
+{
+    "title": "First Post",
+    "description": "A new Post",
+    "url": "youtube.com",
+    "status": "LEARNED"
+}
+
+###
+
+GET http://localhost:5000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzkyZmEyZGE1OWVkYmRmNDhlYmIzZjIiLCJpYXQiOjE2NzA2NjAyMzR9.kJUnvpz7_t3cZhZRFv-hyUzWoRdysPUHPlpL9o8L88U
