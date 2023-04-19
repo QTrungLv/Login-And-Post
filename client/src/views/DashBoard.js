@@ -3,6 +3,7 @@ import { PostContext } from '../contexts/PostContext'
 import { Spinner, Card, Button, Row, Col } from 'react-bootstrap'
 import { AuthContext } from '../contexts/AuthContext'
 import SinglePost from '../components/posts/SinglePost'
+import AddModalPost from '../components/posts/AddModalPost'
 const DashBoard = () => {
 
     const { authState: { user: { username } } } = useContext(AuthContext)
@@ -52,7 +53,10 @@ const DashBoard = () => {
     }
 
     return (
-        <>{body}</>
+        <>
+            {body}
+            <AddModalPost />
+        </>
     )
 }
 
